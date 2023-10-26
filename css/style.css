@@ -1,0 +1,552 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+:root {
+  /* COLORS */
+  --color-sidebar: #ededed;
+  --green: #3cbb6e;
+  --principal-color: #f6f6f6;
+  --gray: #9b9797;
+  --black: #000;
+
+  /* FONTS */
+  --poppins: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--principal-color);
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10%;
+  min-height: 100vh;
+  font-family: var(--poppins);
+}
+
+.container-main {
+  background-color: inherit;
+  padding: 0 1em;
+}
+
+/** SIDEBAR*/
+
+.sidebar {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  background-color: var(--color-sidebar);
+  padding: 1em 0;
+  color: var(--gray);
+  text-transform: uppercase;
+  display: none;
+}
+
+.sidebar:target {
+  display: block;
+}
+
+.sidebar .header-sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1em;
+  margin-bottom: 1em;
+  /* background-color: red; */
+}
+
+.header-sidebar .title-sidebar {
+  color: var(--green);
+  font-size: 1.5em;
+  font-family: serif;
+}
+
+.header-sidebar :last-child {
+  margin-right: 1em;
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 1.2em;
+  align-self: flex-start;
+}
+
+.header-sidebar > a:hover {
+  transform: rotate(90deg);
+  transition: 1s;
+  color: var(--green);
+}
+
+.sidebar ul {
+  width: 100%;
+  list-style: none;
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+.sidebar ul li {
+  width: 100%;
+  height: 25px;
+}
+
+.sidebar ul li > a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+  font-size: 0.8em;
+  color: var(--gray);
+  text-decoration: none;
+}
+
+.sidebar ul li > a > i {
+  margin-right: 1em;
+  padding-left: 2em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li > a:hover {
+  border-left: 3px solid var(--green);
+  color: var(--green);
+  background: rgb(252, 252, 252);
+  background: linear-gradient(
+    90deg,
+    rgba(252, 252, 252, 1) 0%,
+    rgba(53, 170, 103, 1) 0%,
+    rgba(138, 189, 160, 1) 0%,
+    rgba(237, 237, 237, 1) 19%,
+    rgba(237, 237, 237, 1) 100%
+  );
+}
+
+.sidebar .nav-three-sidebar li > a:hover {
+  border: none;
+  background: none;
+}
+
+.sidebar .nav-three-sidebar,
+.title-nav {
+  margin-left: 1.5em;
+}
+
+.sidebar .add-playlist-sidebar {
+  font-size: 0.7em;
+  padding: 0.5em;
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--green);
+  margin-left: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 150px;
+}
+
+.add-playlist-sidebar:hover {
+  background-color: var(--green);
+  color: var(--principal-color);
+}
+
+.add-playlist-sidebar > i {
+  font-size: 1.5em;
+}
+
+.container-main .header-main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1em 0.5em;
+  color: var(--gray);
+  font-size: 1.2em;
+}
+
+.header-main .sidebar-menu {
+  flex: 0 0 5%;
+  text-decoration: none;
+  color: var(--gray);
+}
+
+.header-main .search {
+  flex: 2 0 5%;
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+}
+
+.search .input-search {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  background-color: transparent;
+  color: var(--gray);
+  margin-left: 1em;
+}
+
+.header-main .nav-icons-header {
+  flex: 1 0 5%;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-icons-header li > a {
+  text-decoration: none;
+  color: var(--gray);
+}
+
+.main-content {
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+}
+
+.main-content .cards {
+  width: 100%;
+  height: 40vh;
+  margin: 2em 0;
+  position: relative;
+}
+
+.seeCard {
+  position: absolute;
+  left: -100%;
+}
+
+.cards .img-back {
+  background-image: url("../img/card-3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 50%;
+  border-radius: 10px;
+}
+
+.cards .img-middle {
+  background-image: url("../img/card-2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 70%;
+  border-radius: 10px;
+}
+
+.cards .img-front {
+  background-image: url("../img/beatles.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 90%;
+  border-radius: 10px;
+  color: var(--principal-color);
+  text-align: center;
+  font-family: var(--poppins);
+  font-weight: 400;
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img-front::after {
+  content: "";
+  background-color: var(--black);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.img-front > * {
+  z-index: 2;
+}
+
+.img-front .img-title {
+  font-size: 3em;
+}
+
+.img-front .song-top {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: left;
+}
+
+.img-front .info-front-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 0.8em;
+}
+
+.main-content .featured {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 10% repeat(3, 1fr);
+  width: 100%;
+  height: 500px;
+  margin-bottom: 1em;
+}
+
+.featured .title-featured {
+  grid-area: 1 / 1 / 2 / 4;
+  font-size: 0.8em;
+}
+
+.title-featured :nth-child(2) {
+  color: #9b9797;
+  text-transform: lowercase;
+}
+
+.featured .other-songs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+
+.other-songs > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.other-songs > img:hover {
+  cursor: pointer;
+}
+
+.other-songs > .title-song {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.other-songs > .artist {
+  font-size: 0.7em;
+  color: var(--gray);
+}
+
+.featured :last-child {
+  grid-column: 2/3;
+}
+
+.footer {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.footer .image-song {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer .image-song > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.image-song .info-image {
+  font-size: 0.7em;
+}
+
+.info-image > p {
+  color: var(--gray);
+}
+
+.buttons-song {
+  color: var(--green);
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.buttons-song :nth-child(odd) {
+  color: var(--gray);
+}
+
+.buttons-song :nth-child(2) {
+  box-shadow: 0px 10px 30px var(--green);
+  border-radius: 50%;
+}
+
+.progressBar {
+  font-size: 0.9em;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.progressBar :nth-child(odd) {
+  color: var(--gray);
+  font-size: 0.8em;
+}
+
+.progressBar :nth-child(2) {
+  height: 5px;
+  width: 70%;
+  border-radius: 10px;
+}
+
+.progressBar > progress::-webkit-progress-value {
+  background-color: var(--green);
+  border-radius: 10px;
+}
+
+.progressBar > progress[value]::-moz-progress-bar {
+  background-color: var(--green);
+  border-radius: 10px;
+}
+
+.progressBar::before {
+  content: "";
+  background-color: var(--green);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: var(--green) 0px 5px 15px;
+}
+
+.footer-icons {
+  width: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-icons > * {
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 1.2em;
+}
+
+/* *DESIGN FOR TABLETS AND MOVIL LANDSCAPE */
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: 0 2em;
+  }
+
+  .footer {
+    padding: 1em 2em;
+  }
+
+  .buttons-song {
+    font-size: 1.5em;
+  }
+
+  .image-song .info-image {
+    font-size: 0.8em;
+  }
+
+  .progressBar {
+    width: 60%;
+  }
+
+  .main-content .cards {
+    height: 50vh;
+  }
+}
+
+/* *DESIGN FOR TABLETS LANDSCAPE AND DEKSTOP */
+@media (min-width: 1024px) {
+  body {
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: 90% 10%;
+  }
+
+
+  .container-main .header-main{
+    padding: 1em 0;
+  }
+
+  .header-main .search{
+    margin-left: 0;
+  }
+
+  .header-main .sidebar-menu{
+    display: none;
+  }
+
+  .header-sidebar :last-child{
+    display: none;
+  }
+
+  .sidebar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .sidebar > ul{
+    margin: 1em 0;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 0;
+  }
+
+  .main-content .featured {
+    justify-content: center;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 30% 1fr;
+    height: 160px;
+    row-gap: 1vh;
+  }
+
+  .featured :last-child{
+    grid-area: 2/7/3/8;
+  }
+
+  .featured .title-featured {
+    grid-area: 1 / 1 / 2 / 8;
+  }
+
+  .main-content .cards {
+    height: 40vh;
+    margin: 0.5em 0;
+  }
+
+  .featured .other-songs {
+    padding: 0;
+  }
+
+  .footer{
+    grid-area: 2/1/3/3;
+  }
+}
